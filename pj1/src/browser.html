@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Browser</title>
+    <link href="css/reset.css" rel="stylesheet" type="text/css">
+    <link href="css/samestyle.css" rel="stylesheet" type="text/css">
+    <link href="css/browser.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header id="head">
+    <a id="top"></a>
+    <div class="logo"><img src="../images/others/logo.jpg"></div>
+    <div class="lead">
+        <nav>
+            <ul class="top">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="browser.html" id="browser">Browse</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li id="myaccount"><a>My account<img src="../images/others/list.png" id="list"></a>
+                    <ul class="second">
+                        <li><a href="upload.html"><img src="../images/others/upload.png" id="upload">Upload</a></li>
+                        <li><a href="mypicture.html"><img src="../images/others/mypicture.png" id="mypicture">MyPicture</a></li>
+                        <li><a href="mycollection.html"><img src="../images/others/mycollection.png" id="mycollection">MyCollection</a></li>
+                        <li><a href="../index.html"><img src="../images/others/index.png" id="index">Login</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="clear"></div>
+<div id="body">
+<aside>
+    <div class="block">
+        <h1>Search By Title</h1>
+        <form>
+            <input type="text" name="file0" id="file0">
+            <div id="search" onclick="alert('Searched Successfully!')"><img src="../images/others/search.png"></div>
+        </form>
+    </div>
+    <div class="block">
+        <h1>Hot Content</h1>
+        <ul>
+            <li><a href="#" onclick="alert('已搜索')">Scenery</a></li>
+            <li><a href="#" onclick="alert('已搜索')">City</a></li>
+            <li><a href="#" onclick="alert('已搜索')">People</a></li>
+            <li><a href="#" onclick="alert('已搜索')">Animal</a></li>
+            <li><a href="#" onclick="alert('已搜索')">Building</a></li>
+            <li><a href="#" onclick="alert('已搜索')">Wonder</a></li>
+        </ul>
+    </div>
+    <div class="block">
+        <h1>Hot Country</h1>
+        <ul>
+            <li><a href="#" onclick="alert('已搜索')">China</a></li>
+            <li><a href="#" onclick="alert('已搜索')">Italy</a></li>
+            <li><a href="#" onclick="alert('已搜索')">Japan</a></li>
+            <li><a href="#" onclick="alert('已搜索')">America</a></li>
+        </ul>
+    </div>
+    <div class="block">
+        <h1>Hot City</h1>
+        <ul>
+            <li><a href="#" onclick="alert('已搜索')">Shanghai</a></li>
+            <li><a href="#" onclick="alert('已搜索')">New York</a></li>
+            <li><a href="#" onclick="alert('已搜索')">Tokyo</a></li>
+            <li><a href="#" onclick="alert('已搜索')">London</a></li>
+        </ul>
+    </div>
+</aside>
+<div id="select0">
+    <h1 id="hchange">Filter</h1>
+    <div id="selections">
+        <select id="content">
+            <option value="Filter By Content" disabled selected hidden>Filter By Content</option>
+            <option value="Scenery">Scenery</option>
+            <option value="City">City</option>
+            <option value="People">People</option>
+            <option value="Animal">Animal</option>
+            <option value="Building">Building</option>
+            <option value="Wonder">Wonder</option>
+        </select>
+        <select id="country" onchange="move()">
+            <option value="Filter By Country" disabled selected hidden>Filter By Country</option>
+            <option value="China">China</option>
+            <option value="Italy">Italy</option>
+            <option value="Japan">Japan</option>
+            <option value="America">American</option>
+        </select>
+        <select id="city">
+            <option value="Filter By City" disabled selected hidden>Filter By City</option>
+        </select>
+        <script>
+            function move()
+            {
+                var s1=document.getElementById("country");
+                var s2=document.getElementById("city");
+                var add;
+                if(s1.value=="China")
+                {
+                    add=new Array("Shanghai","Kunming","Beijing","Yantai");
+                }else if(s1.value=="Italy")
+                {
+                    add=new Array("Roma","Milan","Venice","Florence");
+                }else if(s1.value=="Japan")
+                {
+                    add=new Array("Tokyo","Osaka","Kamakura");
+                }else if(s1.value=="America")
+                {
+                    add=new Array("New York","San Francisco","Washington");
+                }
+                else
+                {
+                    add=null;
+                }
+
+                s2.length=0;
+                for(var i=0;i<add.length;i++)
+                {
+                    var ss=new Option();
+                    ss.text=add[i].split()[0];
+                    s2.add(ss);
+                }
+            }
+        </script>
+        <input type="button" value="Filter" id="file1" onclick="alert('已筛选')">
+    </div>
+    <div class="container">
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/5855191275.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/5855213165.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/5855221959.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/5855729828.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/5855752464.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/6114859969.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/9505897492.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/9505893300.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/9505536014.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/9504613978.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/9504609042.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/9504449928.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/9494475161.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/8711645510.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/6119130918.jpg"></div>
+        <div class="inner" onclick="location.href='details.html'"><img src="../images/normal/medium/6596046267.jpg"></div>
+    </div>
+    <div id="numbers">
+        <a href="#"><</a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">></a>
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<footer id="foot">
+    <div class="footer">
+        <p>©19软工张璐.备案号：19302010023</p>
+    </div>
+</footer>
+</body>
+</html>

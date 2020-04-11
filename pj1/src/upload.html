@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <title>Upload</title>
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/samestyle.css" rel="stylesheet" type="text/css">
+  <link href="css/upload.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header id="head">
+  <a id="top"></a>
+  <div class="logo"><img src="../images/others/logo.jpg"></div>
+  <div class="lead">
+    <nav>
+      <ul class="top">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="browser.html">Browse</a></li>
+        <li><a href="search.html" id="Search">Search</a></li>
+        <li id="myaccount"><a>My account<img src="../images/others/list.png" id="list"></a>
+          <ul class="second">
+            <li><a href="upload.html"><img src="../images/others/upload.png" id="upload">Upload</a></li>
+            <li><a href="mypicture.html"><img src="../images/others/mypicture.png" id="mypicture">MyPicture</a></li>
+            <li><a href="mycollection.html"><img src="../images/others/mycollection.png" id="mycollection">MyCollection</a></li>
+            <li><a href="../index.html"><img src="../images/others/index.png" id="index">Login</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="clear"></div>
+<div id="container6">
+  <h1 class="mchange">Upload</h1>
+  <section>
+    <form action="mypicture.html" method="post">
+      <div class="imgdisplay">
+        <img src="" id="imgupload" alt="图片未上传" aria-required="true">
+      </div>
+      <div id="namelabel">No file selected...</div>
+      <div class="fileLabel">
+      <label for="file5" class="filelabel">Upload</label>
+      </div>
+      <input type="file" name="file5" id="file5" onchange="loadFile(this.files[0])" style="display: none"  multiple="multiple" />
+      <script>
+        $("#file5").change(function(){
+          var objUrl = getObjectURL(this.files[0]) ;
+          console.log("objUrl = "+objUrl);
+          if (objUrl) {
+            $("#imgupload").attr("src", objUrl);
+          }
+        }) ;
+        function getObjectURL(file) {
+          var url = null;
+          if (window.createObjectURL!=undefined) {
+            url = window.createObjectURL(file) ;
+          } else if (window.URL!=undefined) {
+            url = window.URL.createObjectURL(file) ;
+          } else if (window.webkitURL!=undefined) {
+            url = window.webkitURL.createObjectURL(file) ;
+          }
+          return url ;
+        }
+      </script>
+      <script>
+        function loadFile(file){
+          document.getElementById('namelabel').innerHTML=file.name;
+        }
+      </script>
+      <div id="picload"></div>
+      <p class="firstline">图片标题：</p>
+      <input type="text" name="pt" id="pt">
+      <p>图片描述：</p>
+      <textarea name="pd" id="pd"></textarea>
+      <p>拍摄国家：</p>
+      <input type="text" name="pco" id="pco">
+      <p>拍摄城市：</p>
+      <input type="text" name="pci" id="pci">
+      <input type="submit" value="Submit" name="continue" id="fil2">
+    </form>
+  </section>
+</div>
+<footer id="foot">
+  <div class="footer">
+    <p>©19软工张璐.备案号：19302010023</p>
+  </div>
+</footer>
+</body>
+</html>
